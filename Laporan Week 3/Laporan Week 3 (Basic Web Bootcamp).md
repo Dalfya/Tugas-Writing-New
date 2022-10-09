@@ -33,6 +33,7 @@
  ![](method-array-multi-push.png)
 
 * Method pop()
+
  ![](method-array-multi-pop.png)
 
         Looping array menggunakan FOR / FOR OF untuk menampilkan data aray
@@ -184,8 +185,7 @@ Saat on progress progress dalam fase pending. Jika gagal maka status asynchronou
 
 ## Web Storage
 
-    Apa yang dimaksud web storage?
-    Web storage adalah salah satu Web API yang dapat menyimpan data secara lokal pada sisi client. Berbeda dengan objek atau array, data yang disimpan pada objek atau array JavaScript bersifat sementara, dan akan hilang jika terjadi reload atau pergantian URL pada browser.
+    Apa yang dimaksud web storage? Web storage adalah salah satu Web API yang dapat menyimpan data secara lokal pada sisi client. Berbeda dengan objek atau array, data yang disimpan pada objek atau array JavaScript bersifat sementara, dan akan hilang jika terjadi reload atau pergantian URL pada browser.
 
 Ada beberapa cara untuk menyimpan data pengguna seperti pencarian, artikel berita, dan lain-lain ke lokal (browser) menggunakan web storage seperti cookies, local storage, dan session storage. Data ini dimanfaatkan oleh situs web tersebut untuk merekam kebiasaan pengguna agar dapat memberikan rekomendasi sesuai preferensi si pengguna tersebut.
 
