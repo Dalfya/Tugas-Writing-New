@@ -36,6 +36,7 @@
 
  ![](method-array-multi-pop.png)
 
+
         Looping array menggunakan FOR / FOR OF untuk menampilkan data aray
 
 * Menggunakan FOR
@@ -119,7 +120,7 @@ Contoh fungsi rekursi menghitung faktorial bilangan
   ![](rekursif-func.png)
 
 
-    Modules adalah cara untuk memisahkan kode ke file yang berbeda. Keuntungan dari modules yaitu mudah untuk mengelola kode serta kode tidak menumpuk di dalam satu file. Terdapat 2 kata kunci pada modules yaitu export dan import.
+      Modules adalah cara untuk memisahkan kode ke file yang berbeda. Keuntungan dari modules yaitu mudah untuk mengelola kode serta kode tidak menumpuk di dalam satu file. Terdapat 2 kata kunci pada modules yaitu export dan import.
 
 ```Javascript
   // File hewan-buah.js
@@ -185,7 +186,7 @@ Saat on progress progress dalam fase pending. Jika gagal maka status asynchronou
 
 ## Web Storage
 
-    Apa yang dimaksud web storage? Web storage adalah salah satu Web API yang dapat menyimpan data secara lokal pada sisi client. Berbeda dengan objek atau array, data yang disimpan pada objek atau array JavaScript bersifat sementara, dan akan hilang jika terjadi reload atau pergantian URL pada browser.
+        Apa yang dimaksud web storage? Web storage adalah salah satu Web API yang dapat menyimpan data secara lokal pada sisi client. Berbeda dengan objek atau array, data yang disimpan pada objek atau array JavaScript bersifat sementara, dan akan hilang jika terjadi reload atau pergantian URL pada browser.
 
 Ada beberapa cara untuk menyimpan data pengguna seperti pencarian, artikel berita, dan lain-lain ke lokal (browser) menggunakan web storage seperti cookies, local storage, dan session storage. Data ini dimanfaatkan oleh situs web tersebut untuk merekam kebiasaan pengguna agar dapat memberikan rekomendasi sesuai preferensi si pengguna tersebut.
 
@@ -256,3 +257,8 @@ cookie dapat menyimpan hingga 4096 byte data (ini termasuk nama, nilai, domain, 
   // menghapus seluruh session storage sekaligus
   sessionStorage.clear();
   ```
+
+
+# Terimakasih
+
+### Diego Alfiandro
