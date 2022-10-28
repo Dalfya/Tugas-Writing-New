@@ -98,6 +98,32 @@ Berikut gambaran dari Virtual DOM
 
 ![](virtual-dom.png)
 
+
+## Component
+Ada 2 cara untuk membuat sebuah component 
+* Menggunakan Function
+* Menggunakan Class
+Pada umumnya dan pada dokumentasi dalam react JS merekomendasikan menggunakan function sebagai component.
+Contoh penggunaan function dalam penyusunan component pada React JS 
+```javascript
+    import './App.css';
+    // import MyEffect from './component/UseEffect';
+    import MyComponent from './component/prop-type';
+
+
+
+    function App() {
+        return (
+            <>
+                {/* <MyEffect/> */}
+                <MyComponent/>
+            </>
+        );
+    }
+
+    export default App;
+```
+
 ## Class & ClassName
 
     Class adalah kata kunci dalam JavaScript dan JSX adalah ekstensi dari javascript. Itulah alasan utama mengapa React menggunakan className dari pada class.
