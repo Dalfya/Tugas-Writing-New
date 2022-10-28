@@ -4,9 +4,11 @@
 
 ## Pengertian React JS
     React JS adalah library JavaScript yang biasa digunakan saat membangun UI suatu website atau aplikasi web.
-    Jadi, React JS bisa dianggap seperti perpustakaan yang berisi berbagai kode JavaScript yang sudah tertulis (pre-written). Anda tinggal mengambil kode yang ingin Anda gunakan. Sehingga, ini membuat proses coding menjadi lebih efisien dengan framework JavaScript tersebut.
+    Jadi, React JS bisa dianggap seperti perpustakaan yang berisi berbagai kode JavaScript yang sudah tertulis (pre-written). 
+    Anda tinggal mengambil kode yang ingin Anda gunakan. Sehingga, ini membuat proses coding menjadi lebih efisien dengan framework JavaScript tersebut.
 
-    Keuntungan menggunakan React JS adalah proses membuat aplikasi front-end leboh cepat walaupun menghandle berbagai data. Konsep modular dalam Javascript juga diterapkan dalam react js. React JS membagi 1 tampilan pada website menjadi komponen komponen kecil
+    Keuntungan menggunakan React JS adalah proses membuat aplikasi front-end leboh cepat walaupun menghandle berbagai data. 
+    Konsep modular dalam Javascript juga diterapkan dalam react js. React JS membagi 1 tampilan pada website menjadi komponen komponen kecil
 
 
 ## Instalasi React JS
@@ -46,7 +48,9 @@ Dan dibawah ini contoh struktur kode dari _App.js_
 
 ![](use-effect.png)
 
-    Dengan membuat file berekstensi .jsx kita dapat menyisipkan tag html didalam return function, semua tag html berlaku dan dapat digunakan secara normal tanpa menggunakan HTML DOM, tanpa menggunakan GetElementById/GetElementByClassName. Rendering file JSX pada browser akan dicompile terlebih dahulu menjadi file JS.
+    Dengan membuat file berekstensi .jsx kita dapat menyisipkan tag html didalam return function, 
+    semua tag html berlaku dan dapat digunakan secara normal tanpa menggunakan HTML DOM, tanpa menggunakan GetElementById/GetElementByClassName. 
+    Rendering file JSX pada browser akan dicompile terlebih dahulu menjadi file JS.
 
 Ada beberapa aturan dalam penulisan file JSX
 * Setiap file JSX hanya boleh memiliki 1 root element / parent, file JSX tidak memperbolehkan adanya 2 root element dalam function.
