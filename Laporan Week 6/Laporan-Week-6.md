@@ -206,3 +206,129 @@ export default MyEffect
 
 ```
 
+# Functional Component
+Untuk dapat mendefinisikan komponen, langkah pertama yang harus kita lakukan adalah mengimpor Komponen Inti Teks React dan React Native, kemudian memulai komponen dengan sebuah fungsi yang diawali dengan huruf kapiital / capitalize.
+```javascript
+    import React from 'react';
+    import { Text } from 'react-native';
+
+    const FunctHello = () => {}; //arrow function
+```
+Di dalam komponen FunctHello dikembalikan sebagai elemen react yang di dalamnya bisa kita isi dengan teks / tag-tag lain yang ingin ditampilkan di layar. Kemudian kita juga harus mengekspor komponen fungsi yang telah kita buat agar bisa diakses di komponen lain.
+```javascript
+const FunctHello = () => { //arrow function
+    return <h1>Hello Wrold</h1>;
+};
+
+export default FunctHello;
+```
+
+# Props and State
+__Props__ adalah singkatan dari Property. Pengertian mudahnya, props adalah data yang diaksihkan (pemberian data). Props umumnya digunakan untuk komunikasi data component dari parent komponent ke child component. Prop ini mirip seperti attribute jika dalam HTML, namun dalam pembuatannya jika dalam functional component maka prop ini adalah parameternya. 
+Berikut untuk contoh penerapannya : 
+```javascript
+    
+    // Membuat functional component
+    function Latar(props) {
+        // Membaca component props
+        let color = props.warnaLatar
+    };
+    // Render component dengan props
+    <Latar warnaLatar ="blue" />
+``` 
+__State__ adalah data private sebuah component atau bisa disebut bahwa state adalah data yang tinggal di component tersebut. Data ini hanya tersedia untuk component tersebut dan tidak bisa di akses dari component lain. Kesimpulannya State adalah sebuah object untuk menyimpan data pada React dan akan di render atau muat ulang ketika data mengalami perubahan. 
+
+
+# Styling di React JS
+
+# Handling Events & Conditional Rendering 
+## Handling Events
+Untuk dapat memberikan event dalam react, kita bisa memakai onClick, onChange, dan attribute-attribute lain seperti halnya yang kita gunakan di HTML JS biasanya. Ketika kita ingin menerapkan sebuah event handler kita tidak bisa memakai varaibel biasa sebagai penampung, seperti set nilai awal = 0 ketika melakukan counter.Kita dapat menerapkan sebuah event handler dengan data yang akan ditampilkan / dapat berubah kita harus menggunakan state. 
+Berikut untuk contoh penerapannya dengan membuat tombol counter increment dan decrement : 
+```javascript
+    import { useState } from "react";
+    
+    
+    function Counter () {
+        const [count, setCount] = useState(0) // untuk menampung counternya
+        const increment = () => {
+            setCount(count + 1)   // fungsi untuk melakukan increment (ditambah 1)
+        }
+        const decrement = () => {
+            setCount(count - 1) // fungsi untuk melakukan decrement (dikurang 1)
+        }
+    
+        return (
+            <>
+                {/* diberi event click */}
+                <button onClick={decrement}>-</button>
+                <span>{count}</span>
+                <button onClick={increment}>+</button>
+            </>
+        )
+    }
+export default Counter;
+```
+
+## Conditional Rendering 
+Adalah sebuah kondisi ketika terjadi sebuah event seperti di klik atau event yang lain. Untuk penerapannya, kita bisa menggunakan if else & operator ternary seperti halnya kita di Javascript biasanya, tinngal bermain logicnya saja mau di beri pengondisian seperti apa. 
+Berikut untuk contoh penerapannya dengan study case user harus login terlebih dahulu sebelum dapat melakukan counting pada case di atas : 
+```javascript
+    import Counter from "./components/Counter";
+    
+    function App() {
+        // untuk conditional renderingnya
+        const [isLogin, setIsLogin] = useState(false);
+        
+        return (
+            <div>
+                <!--memunculkan button ketika belum login  -->
+                {!isLogin && <button onClick={() => setIsLogin(true)}>Login</button>}
+                <br />
+                
+               <!--jika sudah login, akan munculkan counternya -->
+                {isLogin ? <Counter /> : <span>Silakan login dulu bang ...</span>}
+            </div>
+        );
+    }
+export default App;
+```
+
+
+# Lifecycle Method & Hooks 
+
+## Lifecycle Method
+__Lifecycle (Siklus Hidup)__ adalah  aktifitas method yang dilakukan oleh React Native ketika aplikasi di jalankan. Tujuan lifecycle penting untuk dipelajari karena lifecycle mengatur semua aktifitas yang terjadi pada aplikasi yang kita buat. 
+Jenis-jenis lifecycle pada react diantaranya : 
+<ol>
+<li>Mount</li> Sebuah siklus ketika aplikasi baru saja di buka atau pengertian muudahnya mount itu untuk memunculkan.
+<li>Update</li>  Sebuah siklus ketika kita mengubah data yang telah di Mounting.
+<li>Unmount</li> Proses menghilangkan atau mendestroy komponen yang sebelumnya di definisikan.
+</ol>
+
+Dalam lifecycle terdapat yang namanya useEffect(),berfungsi untuk memberi efek samping ketika proses lifecycle berlangsung. Ketika akan menggunakan useEffect, kita pasti akan membutuhkan useState sebagai penampung 
+Berikut contoh penerapannya untuk menampilkan list digimon : 
+
+```javascript
+    function ListDigimon() {
+    const [isLoading, setIsLoading] = useState(true);
+    const [digimons, setDigimons] = useState([]);
+    useEffect(() => { 
+        axios("https://digimon-api.vercel.app/api/digimon") // Untuk melakukan fetching data digimon
+        .then((res) => {
+        setDigimons(res.data);
+        setIsLoading(false);
+        console.log(res.data);
+        });
+    }, []);
+```
+
+## Hooks
+
+__Hooks__ adalah fitur baru yang baru dikenalkan di React JS pada tahun 2018.Hooks digunakan untuk memumadhkan penggunaan functional components agar bisa menggunakan state dan lifecycle lainya.
+
+Sebelumnya, state(setState) dan lifecycle(componenDidMount, componenDidUpdate) hanya bisa digunakan di class component, namun dengan hooks, kita bisa menggunakannya di functional component.
+
+    Hooks yang sering digunakan adalah useState dan useEffect
+
+functional component akan melakukan 'hooks' terhadap hal-hal yang hanya ada di class agar bisa digunakan di functional components dengan mudah.
