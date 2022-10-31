@@ -234,8 +234,55 @@ __State__ adalah data private sebuah component atau bisa disebut bahwa state ada
 
 
 # __Styling di React JS__
+## REACT JS STYLING
+Terdapat beberapa cara melakukan styling pada component react js
+- External CSS
+  - Cara ini sama seperti membuat external CSS biasa
+  - Buat file .css lalu import filenya ke component yang dibuat
+  - Styling yang ada pada file css akan di implementasikan pada component sesuai className yang dipanggil
+  
+```css
+      .button {
+        margin: 40px;
+        border: 5px solid pink;
+      }
+      .content {
+        font-size: 15px;
+        text-align: center;
+      }
+```
+```javascript
+     import React from 'react'
+     import './button.css'
 
-masih proses
+      const button = () => (
+        <div className="button">
+          <p className="button_content">Get started with CSS styling</p>
+        </div>
+      )
+      export default DottedBox
+```
+- Inline CSS
+  - Tuliskan styling didalam file component kita
+
+- Bootstrap
+Kita dapat menggunakan framework bootstrap ke react tetapi gunakan salah satu cara agar tidak tabrakan
+  - Menggunakan bootstrap CDN
+    - Buka webiste [bootstrap](https://getbootstrap.com/)
+    - Lalu copy paste link CDN ke folder `public/index.html` pada bagian tag head
+    - CSS : `<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">`
+    - JavaScript: `<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>`
+
+    - Setelah paste, buka folder `src/App.jsx` dan edit code bootstrap di file tersebut
+    - Simpan dan jalankan project
+
+  - Menginstall bootstrap melalui npm
+    - Buka terminal (bash) dan arahkan ke dalam folder project react
+    - Ketikkan `npm install bootstrap`
+    - Lalu import file bootstrap ke dalam folder src/main.jsx atau src/index.js
+    - CSS: `import "bootstrap/dist/css/bootstrap.min.css"`
+    - JavaScript: `import "bootstrap/dist/js/bootstrap.bundle.min"`
+    - Simpan dan jalankan project
 
 # __Handling Events & Conditional Rendering__
 
