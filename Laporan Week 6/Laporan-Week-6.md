@@ -1,8 +1,8 @@
 # WEEKLY REPORT , TUGAS WRITING WEEK 6
 
-# React Js Dasar
+# __React Js Dasar__
 
-## Pengertian React JS
+## __Pengertian React JS__
     React JS adalah library JavaScript yang biasa digunakan saat membangun UI suatu website atau aplikasi web.
     Jadi, React JS bisa dianggap seperti perpustakaan yang berisi berbagai kode JavaScript yang sudah tertulis (pre-written). 
     Anda tinggal mengambil kode yang ingin Anda gunakan. Sehingga, ini membuat proses coding menjadi lebih efisien dengan framework JavaScript tersebut.
@@ -11,7 +11,7 @@
     Konsep modular dalam Javascript juga diterapkan dalam react js. React JS membagi 1 tampilan pada website menjadi komponen komponen kecil
 
 
-## Instalasi React JS
+## __Instalasi React JS__
 * Install Node Js (Recomended Version)
 * Menggunakan library react
     ```javascript
@@ -36,7 +36,7 @@
 * React siap digunakan
 
 
-## Struktur Project React JS
+## __Struktur Project React JS__
 Karena React JS membagi 1 tampilan pada website menjadi komponen komponen kecil, berikut tampilan project react js yang berhasil diinstal.
 
 ![](file-react.png)
@@ -88,7 +88,7 @@ Ada beberapa aturan dalam penulisan file JSX
 
         export default App;
     ```
-## Virtual DOM
+## __Virtual DOM__
     React JS memiliki fitur Virtual DOM, Virtual DOM secara singkat nya adalah sebuah javascript object (virtual) yang 
     merepresentasikan DOM yang sebenarnya (real DOM). karena virtual dom ini adalah representasi dari real dom maka 
     virtual dom adalah sebuah replikasi (copy) dari real dom tersebut. Berbeda konsep dengan DOM, 
@@ -99,7 +99,7 @@ Berikut gambaran dari Virtual DOM
 ![](virtual-dom.png)
 
 
-## Component
+## __Component__
 Ada 2 cara untuk membuat sebuah component 
 * Menggunakan Function
 * Menggunakan Class
@@ -124,7 +124,7 @@ Contoh penggunaan function dalam penyusunan component pada React JS
     export default App;
 ```
 
-## Class & ClassName
+## __Class & ClassName__
 
     Class adalah kata kunci dalam JavaScript dan JSX adalah ekstensi dari javascript. Itulah alasan utama mengapa React menggunakan className dari pada class.
 
@@ -151,7 +151,7 @@ Berikut contoh ClassName
 
 ```
 
-## Variable
+## __Variable__
 Akses variable dalam JSX menggunakan curly braces / {}
 
 ``` javascript
@@ -175,7 +175,7 @@ Akses variable dalam JSX menggunakan curly braces / {}
 
 ```
 
-## Event 
+## __Event__ 
 Event di JSX tidak jauh beda dengan event yang ada didalam javascript, pendeklarasian event menggunakan curly braces / bracket {}
 
 ``` javascript
@@ -200,12 +200,6 @@ Event di JSX tidak jauh beda dengan event yang ada didalam javascript, pendeklar
 export default MyEffect
 ```
 
-## Conditional rendering
-
-```javascript
-
-```
-
 # Functional Component
 Untuk dapat mendefinisikan komponen, langkah pertama yang harus kita lakukan adalah mengimpor Komponen Inti Teks React dan React Native, kemudian memulai komponen dengan sebuah fungsi yang diawali dengan huruf kapiital / capitalize.
 ```javascript
@@ -223,7 +217,7 @@ const FunctHello = () => { //arrow function
 export default FunctHello;
 ```
 
-# Props and State
+# __Props and State__
 __Props__ adalah singkatan dari Property. Pengertian mudahnya, props adalah data yang diaksihkan (pemberian data). Props umumnya digunakan untuk komunikasi data component dari parent komponent ke child component. Prop ini mirip seperti attribute jika dalam HTML, namun dalam pembuatannya jika dalam functional component maka prop ini adalah parameternya. 
 Berikut untuk contoh penerapannya : 
 ```javascript
@@ -239,9 +233,12 @@ Berikut untuk contoh penerapannya :
 __State__ adalah data private sebuah component atau bisa disebut bahwa state adalah data yang tinggal di component tersebut. Data ini hanya tersedia untuk component tersebut dan tidak bisa di akses dari component lain. Kesimpulannya State adalah sebuah object untuk menyimpan data pada React dan akan di render atau muat ulang ketika data mengalami perubahan. 
 
 
-# Styling di React JS
+# __Styling di React JS__
 
-# Handling Events & Conditional Rendering 
+masih proses
+
+# __Handling Events & Conditional Rendering__
+
 ## Handling Events
 Untuk dapat memberikan event dalam react, kita bisa memakai onClick, onChange, dan attribute-attribute lain seperti halnya yang kita gunakan di HTML JS biasanya. Ketika kita ingin menerapkan sebuah event handler kita tidak bisa memakai varaibel biasa sebagai penampung, seperti set nilai awal = 0 ketika melakukan counter.Kita dapat menerapkan sebuah event handler dengan data yang akan ditampilkan / dapat berubah kita harus menggunakan state. 
 Berikut untuk contoh penerapannya dengan membuat tombol counter increment dan decrement : 
@@ -295,7 +292,7 @@ export default App;
 ```
 
 
-# Lifecycle Method & Hooks 
+# __Lifecycle Method & Hooks__
 
 ## Lifecycle Method
 __Lifecycle (Siklus Hidup)__ adalah  aktifitas method yang dilakukan oleh React Native ketika aplikasi di jalankan. Tujuan lifecycle penting untuk dipelajari karena lifecycle mengatur semua aktifitas yang terjadi pada aplikasi yang kita buat. 
@@ -323,7 +320,7 @@ Berikut contoh penerapannya untuk menampilkan list digimon :
     }, []);
 ```
 
-## Hooks
+## __Hooks__
 
 __Hooks__ adalah fitur baru yang baru dikenalkan di React JS pada tahun 2018.Hooks digunakan untuk memumadhkan penggunaan functional components agar bisa menggunakan state dan lifecycle lainya.
 
@@ -332,3 +329,103 @@ Sebelumnya, state(setState) dan lifecycle(componenDidMount, componenDidUpdate) h
     Hooks yang sering digunakan adalah useState dan useEffect
 
 functional component akan melakukan 'hooks' terhadap hal-hal yang hanya ada di class agar bisa digunakan di functional components dengan mudah.
+
+## Perbedaan Functional Component dengan Class Component
+1. Functional Component(Menggunakan state)
+   
+     ```Javascript
+    import { useState } from "react";
+    function App() {
+        const [nama, setNama] = useState("Diego");
+        return <h1>{ nama }, Sedang belajar React JS</h1>
+    }
+    // output : Diego sedang belajar React JS
+2. Class component(Menggunakan state hooks)
+    ```Javascript
+    class component extends React.Component {
+        constructor(props) {
+            Super(props);
+            this.state = { nama : "Diego"};
+        }
+        render() {
+             return <h1>{this.state.nama}, Sedang belajar React JS</h1>;
+            }
+    }
+    // output : Diego sedang belajar React JS
+    ```
+    Dengan menggunakan functional component dan menggunakan hooks maka code akan terlihat lebih clean,pendek dan mudah dimengerti.
+    Tim yang sudah mendevelop React merekomendasikan untuk mulai menggunakan hooks karena lebih mudah dimengerti.
+
+## useState
+Penggunaan useState sedikit berbeda dengan setState/state di class component, namun pengertian useState sendiri sama seperti dengan state biasa.
+## Cara penggunaan usestate hooks
+```Javascript
+   import { useState } from "react" //Import usestate dari react
+   
+   function APp(){
+    const [nama, setNama] = useState("Diego"); //Menuliskan useState hooks
+    
+    return(
+        <div className = "App">
+            <h1>{ nama }, sedang belajar React JS</h1> 
+            <button onClick = {setNama("DyAlfya")}> Update nama</button>
+        </div>
+        );
+   };
+    // output : Diego sedang belajar React JS
+    // apabila button di klik maka akan berubah menjadi ' DyAlfya sedang belajar React JS'
+   ```
+## Update State
+State bisa diubah menggunakan variabel kedua dari state hooks.
+contoh:
+```Javascript
+    const [nama, setNama] = useState("Diego");
+
+    //Untuk mengubahnya kita tinggal menggunakan setNama
+ ```
+
+# Form 
+Penggunaan form di react sebenarnya sama saja dengan penggunaannya di HTML biasa. Namun ketika menghadapi banyak kasus, akan lebih mudah jika memiliki sebuah fungsi JavaScript yang menangani sebuah submisi dari sebuah form dan memiliki akses terhadap data yang dimasukkan pengguna ke dalam form. Seperti halnya elemen form seperti tag input, textarea & select, mereka punya state masing-masing & meng-update sesuai inputan user. Di react, state yang dapat berubah ini akan disimpan dalam property yaitu menggunakan setState().
+Berikut untuk penerapannya :
+```javascript
+    import { useState } from "react";
+    import axios from "axios";
+
+    const Form = () => { // Membuat fungsi bernama Form
+    const [name, setName] = useState(""); // untuk menampung nama & untuk mengubahnya nanti
+    const [address, setAddress] = useState(""); //  untuk menampung address & untuk mengubahnya nanti
+    const [data, setData] = useState({}); // untuk menampung data & untuk menampilkannya nanti
+    const handleSubmit = (e) => { // Membuat fungsi untuk menghandle submit
+    e.preventDefault();
+    
+    axios // Untuk mengirimkan data yang isinya : name, address, program dari database
+      .post("http://localhost:3000/student", { // local host disini merupakan api dummy yang dibuat untuk contoh dalam proses ini
+        name,
+        address,
+      })
+      .then(() => {
+        setData({ name, address, program }); // Untuk menampilkan nama, address, program
+        setName(""); // untuk mengosongkan form name ketika button submit  di klik
+        setAddress(""); // untuk mengosongkan form address ketika button di klik
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+    
+    return ( 
+    <>
+        <form action="" onSubmit={handleSubmit}>  {/* Memanggil fungsi handleSubmit ketika button submit di klik */}
+        <label htmlFor="name">Name</label> 
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />  {/* Mengambil value inputan name user */}
+        <label htmlFor="address">Address</label>
+        <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} /> {/* Mengambil value inputan address user */}
+        <button type="submit">Submit</button>
+        </form>
+        <br />
+        <h2>Name: {data.name}</h2> {/* Menampilkan name hasil dari inputan */}
+        <h2>Address: {data.address}</h2> {/* Menampilkan address hasil dari inputan */}
+    </>
+  );
+};
+```
