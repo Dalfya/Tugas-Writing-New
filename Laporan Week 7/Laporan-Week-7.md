@@ -49,7 +49,7 @@ const App = () => {
   return (
     <>
       <h1>Prop Types</h1>
-      <Student name={"dila"} address ={"Jalan.in aja dulu"} age={22}} />
+      <Student name={"diego"} address ={"Jalan.in aja dulu"} age={19}} />
     </>
   );
 };
