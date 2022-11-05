@@ -150,22 +150,34 @@ Dengan menambahlan attribute index di dalam tag "Route" di file, halaman ini aka
     </Routes>
 ```
 
-## __State Managemen ~ Redux__ <br>
-__Redux__ adalah sebuah aplikasi state management. State management adalah cara untuk memfasilitasi komunikasi dan berbagai data lintas komponen. Redux berfungsi untuk melakukan perubahan state yang dibutuhkan oleh setiap fungsional yang ada di suatu aplikasi. Tujuan redux untuk mengatasi props drilling (penggunaan dan pendeklarasian props yang berulang ulang). Untuk membuat perubahan tersebut, Redux memiliki tiga komponen utama yaitu __store__ , __reducer__, dan __action__. Langkah-langkah dalam menggunakan redux dalam react yaitu : <br>
+## __State Managemen ~ Redux__
+__Redux__ adalah sebuah aplikasi state management. State management adalah cara untuk memfasilitasi komunikasi dan berbagai data lintas komponen. Redux berfungsi untuk melakukan perubahan state yang dibutuhkan oleh setiap fungsional yang ada di suatu aplikasi. Tujuan redux untuk mengatasi props drilling (penggunaan dan pendeklarasian props yang berulang ulang). Untuk membuat perubahan tersebut, Redux memiliki tiga komponen utama yaitu __store__ , __reducer__, dan __action__. <br>
+
+Langkah-langkah dalam menggunakan redux dalam react yaitu : 
 <ol>
+<li>Installasi react redux</li>
+
+```javascript
+    npm install redux react-redux
+```
+
 <li>Buat Store</li>
 
 ```javascript
+// membuat store sebagai wadah/ gudang dari state
+
     import { createStore } from 'redux'
-    import keranjangReducer from '../reducer/keranjangReducer'
+    
     const store = createStore(keranjangReducer)
     export default store;
 ```
 <li>Buat Reducer</li>
 
 ```javascript
+//direducer ini dia akan menerima initial state (state awal)
+
     const initialState = {
-    totalKeranjang: 0,
+        totalKeranjang: 0,
     };
   
   function keranjangReducer(state = initialState, action) {
@@ -175,11 +187,24 @@ __Redux__ adalah sebuah aplikasi state management. State management adalah cara 
       default:
         return state;
     }
-  };
+  }; 
+// fungsi diatas memiliki parameter state untuk initialstatenya dan action, kemudian terdapat swicth dan case untuk memilih action apa yang akan dilakukan,action disini akan mengubah data initialState.
   
   export default keranjangReducer;
+
+//reducer ini yang nantinya akan dipanggil kembali ke store menjadi sebuah parameter
 ```
-<li>Buat Provider (untuk membari tahu bahwa storenya sudah tersedia</li>
+```javascript
+// membuat store sebagai wadah/ gudang dari state
+
+    import { createStore } from 'redux'
+    import keranjangReducer from '../reducer/keranjangReducer'
+    
+    const store = createStore(keranjangReducer)
+    export default store;
+```
+
+<li>Buat Provider (untuk membari tahu bahwa storenya sudah tersedia)</li>
 
 ```javascript
     import { Provider } from 'react-redux';
@@ -193,45 +218,96 @@ __Redux__ adalah sebuah aplikasi state management. State management adalah cara 
 
 ```javascript
     import { useSelector } from 'react-redux'
+    
     function Keranjang() {
-    const {totalKeranjang} = useSelector(state => state)
-    return (
-        <div>
-        <span>Keranjang</span>
-        <span> {totalKeranjang}</span>
-        </div>
-    )
+        const {totalKeranjang} = useSelector(state => state)
+        return (
+            <div>
+                <span>Keranjang</span>
+                <span>{totalKeranjang}</span>
+            </div>
+        )
     }
     export default Keranjang;
+```
+<li>Membuat sebuah action</li>
+
+```javascript
+//membuat action( action == sebuah function yang memiliki return object yang memiliki properti type)
+
+    export const INCREMENT_KERANJANG = "INCREMENT_KERANJANG"
+    export const DECREMENT_KERANJANG = "DECREMENT_KERANJANG"
+
+    export function incrementKeranjang() {
+        return {
+            type: INCREMENT_KERANJANG,
+        }
+    }
+
+    export function decrementKeranjang() {
+        return {
+            type: DECREMENT_KERANJANG,
+        }
+    }
+    
 ```
 <li>Ubah Data di Store menggunakan dispatch(action)</li>
 
 ```javascript
+//Mengimport useDispatch() untuk mengirim data kedalam reducer
+    import React, { useState } from "react";
     import { useDispatch } from "react-redux";
-    export function incrementKeranjang(payload) {
-    return {
-        type: INCREMENT_KERANJANG,
-        payload
-    }
-    }
-    export function decrementKeranjang(payload) {
-    return {
-        type: DECREMENT_KERANJANG,
-        payload
-    }
-    }
+
+// mengimport action yang telah dibuat ke component counter
+    import {
+        incrementKeranjang,
+        decrementKeranjang,
+    } from "../redux/action/keranjangAction";
+
     function Counter() {
-    const dispatch = useDispatch(); //untuk meng-trigger action agar mengubah data di store
-    const [count, setCount] = useState(0);
-    const increment = () => {
-        dispatch(incrementKeranjang('oke'))
-        setCount(count + 1);
-    };
-    const decrement = () => {
-        dispatch({
-        type: "DECREMENT_KERANJANG"
-        })
-        setCount(count - 1);
-    };
+        const dispatch = useDispatch();
+        const [count, setCount] = useState(0);
+
+        const increment = () => {
+            dispatch(incrementKeranjang())
+            setCount(count + 1);
+        };
+
+        const decrement = () => {
+            dispatch({
+            type: "DECREMENT_KERANJANG"
+            })
+            setCount(count - 1);
+        };
+
+        return (
+            <>
+                <button onClick={decrement}>-</button>
+                <span>{count}</span>
+                <button onClick={increment}>+</button>
+            </>
+        );
+}
+
+export default Counter;
+```
+```javascript
+//kode di App.jsx untuk menampilkan halaman keranjang
+    import { useState } from 'react'
+    import Keranjang from './components/Keranjang'
+
+
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <div className="App">
+      <Keranjang />
+    </div>
+  )
+}
+
+export default App
+
 ```
 
