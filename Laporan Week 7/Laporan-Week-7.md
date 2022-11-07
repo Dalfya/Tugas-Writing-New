@@ -373,7 +373,9 @@ Berikut untuk contoh penerapannya : <br>
     //Mengimport thunk dari react-redux
     import todoReducer from '../todoReducer';
     
-    //Combine reducer berfungsi untuk menampung lebih dari 1 reducer karena 1 store hanya dapat menyimpan 1 reducer, cara menyimpan beberapa reducer kedalam sebuah function
+    //Combine reducer berfungsi untuk menampung lebih dari 1 reducer 
+    //karena 1 store hanya dapat menyimpan 1 reducer
+    //cara menyimpan beberapa reducer kedalam sebuah function
     const allReducer = combineReducers({
             todo: todoReducer,})
     
