@@ -1,4 +1,4 @@
-# **Weekly report,** week 7
+# **Weekly report,** Week 7
 
 ## **React ~ Prop Types** <br>
 __Prop Types__ merupakan sebuah library yang dapat membantu untuk memeriksa tipe data props yang kita kirim agar sesuai dengan ekspektasi kita. Untuk dapat menggunakan PropTypes ini, terlebih dahulu kita harus menginstallnya dengan mengetikkan perintah
