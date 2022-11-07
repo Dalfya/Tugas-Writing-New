@@ -310,4 +310,112 @@ function App() {
 export default App
 
 ```
+Dalam mengirimkan action menggunakan dispatch, kita juga bisa menampung data / memberikan info tambahan dalam action menggunakan __payload__. Kemudian saat function action dengan parameter payload tersebut dipanggil function lain menggunakan dispatch,parameter function action itu dapat diganti dengan data / pesan sesuai keinginan kita. <br>
+Berikut untuk contoh penerapannya : <br>
+```javascript
+    export const INCREMENT_KERANJANG = "INCREMENT_KERANJANG"
+    export const DECREMENT_KERANJANG = "DECREMENT_KERANJANG"
+    
+    export function incrementKeranjang(payload) {
+        return {
+            type: INCREMENT_KERANJANG,
+            payload
+        }
+    } //payload dijadikan sebagai parameter dalam function action yang mengembalikan tipe dari masing-masing action
+    
+    export function decrementKeranjang(payload) {
+        return {
+            type: DECREMENT_KERANJANG,
+            payload
+        }
+};
+    function Counter() {
+    const dispatch = useDispatch();
+    // function action dengan parameter payload tersebut dipanggil function lain yang menggunakan dispatch.
+    const [count, setCount] = useState(0);
+    //Membuat function increment 
+    const increment = () => {
+        dispatch(incrementKeranjang('increment'))
+        setCount(count + 1);
+    };
+    //Membuat function decrement 
+    const increment = () => {
+        dispatch(decrementKeranjang('decrement')) // pesan payload
+        setCount(count - 1);
+    };
+    return (
+        <>
+        <button onClick={decrement}>-</button>
+        <span>{count}</span>
+        <button onClick={increment}>+</button>
+        </>
+    );
+};
+```
 
+# __State Management ~ Async Action with Redux Thunk and Middleware__
+__Redux Thunk?__ adalah sebuah  middleware yang memungkinkan kita untuk membuat Action yang _mengembalikan function_, _bukan action_. Selain itu, Thunk juga dapat membuat fungsi yang di dalamnya terdapat asynchronusnya agar kita dapat menunda proses pengambilan data di API.<br>
+ __Penggunaan Redux Thunk__
+
+ ```javascript
+ //installasi react-redux 
+    npm install redux react-redux
+
+//kemudian installasi redux thunk
+    npm install redux-thunk@2.3.0
+ ```
+
+
+Berikut untuk contoh penerapannya : <br>
+```javascript
+    import { createStore, combineReducers, applyMiddleware } from 'redux';
+    import thunk from 'redux-thunk';
+    //Mengimport thunk dari react-redux
+    import todoReducer from '../todoReducer';
+    
+    //Combine reducer berfungsi untuk menampung lebih dari 1 reducer karena 1 store hanya dapat menyimpan 1 reducer, cara menyimpan beberapa reducer kedalam sebuah function
+    const allReducer = combineReducers({
+            todo: todoReducer,})
+    
+    const store = createStore(allReducer, applyMiddleware(thunk))
+    
+    export default store;
+```
+
+Untuk implementasi penggunaan Redux Thunk salah satunya dalah berkomunikasi secara asynchronus dengan API eksternal untuk mengambil atau menyimpan data.<br>
+
+
+```javascript
+    import axios from "axios";
+    //Membuat variabel untuk menampung action
+    
+    export const GET_TODO = "GET_TODO";
+    export const FETCH_START = "FETCH_START";
+    export const SUCCESS_GET_TODO = "SUCCESS_GET_TODO";
+    
+    //Membuat function untuk tipe dari setiap action
+    function fetchStart() {
+        return {
+            type: FETCH_START,
+        };
+    }
+    
+    function successGetTodo(data) {
+        return {
+            type: SUCCESS_GET_TODO,
+            payload: data,
+        };
+    }
+
+export const getTodo = () => {
+  return async (dispatch) => {
+    // untuk action FETCH_START
+    dispatch(fetchStart());
+    // untuk mendapatkan data todo dari API
+    const result = await axios.get(
+      "https://63478a450484786c6e82998f.mockapi.io/todo"
+    );
+    // untuk action SUCCESS_GET_TODO
+    dispatch(successGetTodo(result.data));
+  };
+};
